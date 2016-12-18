@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/09 12:36:26 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/09 12:36:30 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include <string.h>
 
-typedef struct		s_p
+void		*ft_memchr(const void *s, int c, size_t n)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	size_t	i;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	i = 0;
+	while (i != n && ((unsigned char*)s)[i] != (unsigned char)c)
+		++i;
+	return (i == n) ? NULL : (void*)(s + i);
+}

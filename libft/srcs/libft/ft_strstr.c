@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/09 12:38:07 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/09 12:38:08 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-typedef struct		s_p
+char		*ft_strstr(const char *haystack, const char *needle)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	size_t	size;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	if (!*needle)
+		return ((char*)haystack);
+	size = ft_strlen(needle);
+	while (*haystack && ft_strncmp(haystack, needle, size))
+		++haystack;
+	return (ft_strncmp(haystack, needle, size)) ? NULL : (char*)haystack;
+}

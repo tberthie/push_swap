@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/03 18:07:09 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/26 15:35:51 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-typedef struct		s_p
+void		ft_putnbr(int n)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	unsigned int	n2;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	if (n < 0)
+		ft_putchar('-');
+	n2 = (n < 0 ? -n : n);
+	if (n2 >= 10)
+	{
+		ft_putnbr(n2 / 10);
+		ft_putchar(n2 % 10 + '0');
+	}
+	else
+		ft_putchar(n2 + '0');
+}

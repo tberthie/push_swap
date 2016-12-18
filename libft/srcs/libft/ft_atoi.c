@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/09 12:42:17 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/25 19:57:05 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-typedef struct		s_p
+int			ft_atoi(const char *str)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	int neg;
+	int	nbr;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	nbr = 0;
+	while (ft_isspace(*str))
+		str++;
+	neg = (*str == '-' ? -1 : 1);
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		nbr = (nbr * 10 + *str++ - '0');
+	return (neg * nbr);
+}

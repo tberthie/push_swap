@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/04 11:31:10 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/04 13:52:06 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-typedef struct		s_p
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int		*p;
-	int		s;
-}					t_p;
-
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	if (alst && (*alst)->next)
+		ft_lstdel(&(*alst)->next, del);
+	ft_lstdelone(alst, del);
+	*alst = NULL;
+}

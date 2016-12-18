@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/09 12:36:45 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/09 12:36:47 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include <string.h>
 
-typedef struct		s_p
+void		*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	signed char	op;
+	int			i;
+	int			lim;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	op = 1 - 2 * (dest - src >= 0 && dest - src < (int)n);
+	lim = (op == 1) ? (int)n : -1;
+	i = (op == 1) ? 0 : (int)n - 1;
+	while (i != lim)
+	{
+		((char*)dest)[i] = ((const char*)src)[i];
+		i += op;
+	}
+	return (dest);
+}

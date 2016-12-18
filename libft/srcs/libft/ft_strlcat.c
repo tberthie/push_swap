@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/09 12:37:39 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/09 12:37:40 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-typedef struct		s_p
+size_t		ft_strlcat(char *dest, const char *src, size_t n)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	size_t	ret;
+	size_t	i;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	i = ft_strlen(dest);
+	ret = i + ft_strlen(src);
+	if (i >= n)
+		return (ret - i + n);
+	--n;
+	while (*src && i != n)
+		dest[i++] = *src++;
+	dest[i] = '\0';
+	return (ret);
+}

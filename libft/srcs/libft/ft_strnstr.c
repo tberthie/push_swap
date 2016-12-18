@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/10 11:25:05 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/10 11:25:06 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-typedef struct		s_p
+char		*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	unsigned int	i;
+	size_t			s;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	s = ft_strlen(needle);
+	i = 0;
+	while (haystack[i] && ft_strncmp(haystack + i, needle, s))
+		++i;
+	return ((haystack[i] && n >= i + s) || !*needle) ?
+	(char*)(haystack + i) : 0;
+}

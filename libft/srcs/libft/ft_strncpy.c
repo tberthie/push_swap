@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/09 12:37:54 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/09 12:37:56 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include <string.h>
 
-typedef struct		s_p
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	size_t	i;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	i = 0;
+	while (src[i] && i != n)
+	{
+		dest[i] = src[i];
+		++i;
+	}
+	while (i != n)
+		dest[i++] = '\0';
+	return (dest);
+}

@@ -1,5 +1,6 @@
 S1 = main.c \
-	 checker.c
+	 checker.c \
+	 ops.c
 
 S2 = main.c
 

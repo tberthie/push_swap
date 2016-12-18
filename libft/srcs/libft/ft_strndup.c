@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/02 18:33:42 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/09 12:37:57 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include <stdlib.h>
+#include "libft.h"
 
-typedef struct		s_p
+char	*ft_strndup(const char *s1, size_t n)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	char	*cpy;
+	int		i;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	i = 0;
+	cpy = (char*)malloc(sizeof(char) * (n + 1));
+	if (!cpy)
+		return (NULL);
+	while (n-- > 0)
+		cpy[i++] = *s1++;
+	cpy[i] = '\0';
+	return (cpy);
+}

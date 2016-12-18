@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 22:43:08 by tberthie          #+#    #+#             */
-/*   Updated: 2016/12/03 18:59:14 by tberthie         ###   ########.fr       */
+/*   Created: 2016/11/03 17:25:48 by tberthie          #+#    #+#             */
+/*   Updated: 2016/11/09 12:38:10 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include <stdlib.h>
 
-typedef struct		s_p
+char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int		*p;
-	int		s;
-}					t_p;
+	char	*new;
+	int		i;
 
-void				checker(t_p *a, t_p *b);
-int					insert(t_p *a, int b, int n);
-void				swap(int *a, int *b);
-void				push(t_p *a, t_p *b);
-void				rot(t_p *a, int t);
-
-#endif
+	if (!s)
+		return (NULL);
+	i = 0;
+	new = (char*)malloc(sizeof(char) * (len + 1));
+	if (!new)
+		return (NULL);
+	while (len-- > 0)
+		new[i++] = s[start++];
+	new[i] = '\0';
+	return (new);
+}
