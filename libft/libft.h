@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 19:51:42 by tberthie          #+#    #+#             */
-/*   Updated: 2017/02/20 19:52:05 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/02/21 01:24:27 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ unsigned int	ft_parrlen(void **array);
 void			**ft_parrdup(void **array);
 void			**ft_parrndup(void **array, unsigned int n);
 void			**ft_parrjoin(void **a1, void **a2);
+
+int				ft_intlen(int nb);
 
 #endif

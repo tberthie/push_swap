@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops.h                                              :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/20 22:20:48 by tberthie          #+#    #+#             */
-/*   Updated: 2017/02/21 00:53:13 by tberthie         ###   ########.fr       */
+/*   Created: 2017/02/21 01:22:50 by tberthie          #+#    #+#             */
+/*   Updated: 2017/02/21 01:48:44 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPS_H
-# define OPS_H
+#include "libft.h"
 
-# include "libft.h"
-
-typedef	struct	s_stack
+int				ft_intlen(int nbr)
 {
-	int		*stack;
-	int		size;
+	unsigned int	nb;
+	int				len;
 
-	char	padding[4];
-}				t_stack;
-
-void			swap(t_stack *elem);
-void			push(t_stack *origin, t_stack *dest);
-void			rotate(t_stack *elem, char reverse);
-void			double_operator(char op, t_stack *a, t_stack *b);
-
-#endif
+	nb = nbr < 0 ? (unsigned int)-nbr : (unsigned int)nbr;
+	len = (nbr < 0) + 1;
+	while (nb >= 10)
+	{
+		nb /= 10;
+		len++;
+	}
+	return (len);
+}

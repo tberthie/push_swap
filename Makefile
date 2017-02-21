@@ -6,13 +6,13 @@
 #    By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/20 22:18:00 by tberthie          #+#    #+#              #
-#    Updated: 2017/02/20 23:14:09 by tberthie         ###   ########.fr        #
+#    Updated: 2017/02/21 00:51:23 by tberthie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CHECK = $(addsuffix .o, $(addprefix objs/, checker))
 PUSH = $(addsuffix .o, $(addprefix objs/, push_swap))
-COMMON = $(addsuffix .o, $(addprefix objs/, ops))
+COMMON = $(addsuffix .o, $(addprefix objs/, ops tools))
 
 N_CHECK = checker
 N_PUSH = push_swap
@@ -28,7 +28,7 @@ $(N_CHECK): $(CHECK) $(COMMON)
 
 $(N_PUSH): $(PUSH) $(COMMON)
 	make -C libft
-	gcc -o $(N_CHECK) $(CHECK) $(COMMON) libft/libft.a
+	gcc -o $(N_PUSH) $(PUSH) $(COMMON) libft/libft.a
 
 objs/%.o: srcs/%.c
 	gcc -o $@ -c $< -I includes -I libft -Weverything

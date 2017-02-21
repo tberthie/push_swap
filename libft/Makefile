@@ -8,7 +8,9 @@ OBJ=$(addprefix ft_,$(addsuffix .o,\
 		strlen strrem strfrmchr\
 	strnew strpush strspush strins strsins strrem\
 	strarrdup strarrstr strarrstrn strarrrem strarrstrlen strarrstrstrr\
-	parrnew parrfree parrelmfree parrpush parrprem parrrem parrlen parrdup parrndup parrjoin))
+	parrnew parrfree parrelmfree parrpush parrprem parrrem parrlen parrdup parrndup parrjoin\
+	intlen))
+
 NAME=libft.a
 
 all: $(NAME)
