@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 00:51:09 by tberthie          #+#    #+#             */
-/*   Updated: 2017/02/21 02:08:24 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/02/21 02:17:45 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static void	get_max(t_stack *a, t_stack *b, int *max)
+static void		get_max(t_stack *a, t_stack *b, int *max)
 {
 	int			tmp;
 	int			i;
@@ -32,13 +32,13 @@ static void	get_max(t_stack *a, t_stack *b, int *max)
 			max[1] = tmp;
 }
 
-static void	fill(int len)
+static void		fill(int len)
 {
 	while (len-- > 0)
 		write(1, " ", 1);
 }
 
-void		display(t_stack *a, t_stack *b)
+void			display(t_stack *a, t_stack *b)
 {
 	int			size;
 	int			i;
@@ -67,7 +67,7 @@ void		display(t_stack *a, t_stack *b)
 	ft_putstr("\x1b[33m\n");
 }
 
-char		check_nbr(char *str, int *dst, t_stack *a)
+char			check_nbr(char *str, int *dst, t_stack *a)
 {
 	char	*tmp;
 	char	neg;
@@ -86,6 +86,16 @@ char		check_nbr(char *str, int *dst, t_stack *a)
 	i = 0;
 	while (i < a->size)
 		if (a->stack[i++] == *dst)
+			return (0);
+	return (1);
+}
+
+char			check(t_stack *a, t_stack *b)
+{
+	if (b->size)
+		return (0);
+	while (a->size-- > 1)
+		if (a->stack[a->size] < a->stack[a->size - 1])
 			return (0);
 	return (1);
 }

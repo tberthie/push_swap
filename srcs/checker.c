@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 22:17:15 by tberthie          #+#    #+#             */
-/*   Updated: 2017/02/21 02:13:40 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/02/21 02:17:34 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-
-static char		check(t_stack *a, t_stack *b)
-{
-	if (b->size)
-		return (0);
-	while (a->size-- > 1)
-		if (a->stack[a->size] < a->stack[a->size - 1])
-			return (0);
-	return (1);
-}
 
 static char		exec(char *cmd, t_stack *a, t_stack *b)
 {

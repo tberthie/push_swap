@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 22:20:00 by tberthie          #+#    #+#             */
-/*   Updated: 2017/02/21 02:16:12 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/02/21 02:33:06 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,17 @@
 
 static void		solve(t_stack *a, t_stack *b, char flag)
 {
+
+
 	//do stuff
+
+
 	if (flag)
 		display(a, b);
+	if (check(a, b))
+		return ;
+	else
+		solve(a, b, flag);
 }
 
 int				main(int ac, char **av)
