@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 00:51:09 by tberthie          #+#    #+#             */
-/*   Updated: 2017/02/22 15:51:00 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/09/29 18:08:45 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,13 @@ char			check_nbr(char *str, int *dst, t_stack *a)
 
 char			check(t_stack *a, t_stack *b)
 {
+	int		size;
+
+	size = a->size;
 	if (b->size)
 		return (0);
-	while (a->size-- > 1)
-		if (a->stack[a->size] < a->stack[a->size - 1])
+	while (size-- > 1)
+		if (a->stack[size] < a->stack[size - 1])
 			return (0);
 	return (1);
 }
