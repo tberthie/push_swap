@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/21 00:51:32 by tberthie          #+#    #+#             */
-/*   Updated: 2017/10/01 16:40:36 by tberthie         ###   ########.fr       */
+/*   Created: 2017/10/01 16:38:40 by tberthie          #+#    #+#             */
+/*   Updated: 2017/10/01 17:01:53 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "push_swap.h"
+#include "tools.h"
 
-# include "ops.h"
+int			solve(t_stack *a, t_stack *b, char flag)
+{
+	static int	ops = 0;
 
-void		display(t_stack *a, t_stack *b);
-char		check_nbr(char *str, int *dst, t_stack *a);
-char		check(t_stack *a, t_stack *b);
+	if (check(a, b))
+		return (ops);
 
-#endif
+	// algo // operate(ft_strdup("sa"), a, b, &ops);
+
+	if (flag)
+		display(a, b);
+	return (solve(a, b, flag));
+}

@@ -6,12 +6,12 @@
 #    By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/20 22:18:00 by tberthie          #+#    #+#              #
-#    Updated: 2017/02/21 00:51:23 by tberthie         ###   ########.fr        #
+#    Updated: 2017/10/01 16:39:48 by tberthie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CHECK = $(addsuffix .o, $(addprefix objs/, checker))
-PUSH = $(addsuffix .o, $(addprefix objs/, push_swap))
+PUSH = $(addsuffix .o, $(addprefix objs/, push_swap solve))
 COMMON = $(addsuffix .o, $(addprefix objs/, ops tools))
 
 N_CHECK = checker

@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 22:20:00 by tberthie          #+#    #+#             */
-/*   Updated: 2017/09/29 18:13:23 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/10/01 17:01:26 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,27 @@
 #include "tools.h"
 
 #include <unistd.h>
+#include <stdlib.h>
 
-static void		split(t_stack *a, t_stack *b, char flag)
+void			operate(char *op, t_stack *a, t_stack *b, int *ops)
 {
-	int		rot;
-
-	rot = a->size;
-	while (rot > 0 && a->size > 1)
-	{
-		if (a->stack[0] > a->stack[a->size - 1])
-		{
-			push(a, b);
-			ft_print(1, "pa\n");
-			display(a, b);
-			rot--;
-		}
-		else
-		{
-			ft_print(1, "ra\n");
-			rotate(a, 0);
-			display(a, b);
-		}
-		rot--;
-	}
-	display(a, b);
-	rotate(a, 1);
-}
-
-static void		merge(t_stack *a, t_stack *b, char flag)
-{
-
-}
-
-static void		solve(t_stack *a, t_stack *b, char flag)
-{
-	if (check(a, b))
-		return ;
-	if (a->size >= 2 && a->stack[0] > a->stack[1])
-	{
-		ft_print(1, "sa\n");
-		swap(a);
-	}
-	else if (!b->size)
-		split(a, b, flag);
+	if (op[0] == 's' && op[1] != 's')
+		swap(op[1] == 'a' ? a : b);
+	else if (op[0] == 's' && op[1] == 's')
+		double_operator('s', a, b);
+	else if (op[0] == 'p')
+		op[1] == 'a' ? push(a, b) : push(b, a);
+	else if (op[0] == 'r' && op[1] != 'r')
+		rotate(op[1] == 'a' ? a : b, 0);
+	else if (op[0] == 'r' && op[1] == 'r' && !op[2])
+		double_operator('r', a, b);
+	else if (op[0] == 'r' && op[1] == 'r' && op[2] == 'r')
+		double_operator('R', a, b);
 	else
-		merge(a, b, flag);
-	if (flag)
-		display(a, b);
-	solve(a, b, flag);
+		rotate(op[2] == 'a' ? a : b, 1);
+	ft_print(1, "%s\n", op);
+	free(op);
+	(*ops)++;
 }
 
 int				main(int ac, char **av)
@@ -88,6 +61,6 @@ int				main(int ac, char **av)
 	}
 	if (flag)
 		display(a, b);
-	solve(a, b, flag);
+	ft_print(1, "Ops: %d\n", solve(a, b, flag));
 	return (0);
 }
