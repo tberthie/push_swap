@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 22:20:00 by tberthie          #+#    #+#             */
-/*   Updated: 2017/10/01 17:02:37 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/10/01 17:05:34 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int				main(int ac, char **av)
 	}
 	if (flag)
 		display(a, b);
+	solve(a, b, flag);
 	return (0);
 }
