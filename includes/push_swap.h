@@ -6,7 +6,7 @@
 /*   By: tberthie <tberthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 22:21:19 by tberthie          #+#    #+#             */
-/*   Updated: 2017/10/01 17:00:45 by tberthie         ###   ########.fr       */
+/*   Updated: 2017/10/01 17:02:43 by tberthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include "ops.h"
 
 void		operate(char *op, t_stack *a, t_stack *b, int *ops);
-int			solve(t_stack *a, t_stack *b, char flag);
+void		solve(t_stack *a, t_stack *b, char flag);
 
 #endif
